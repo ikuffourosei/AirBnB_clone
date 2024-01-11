@@ -4,7 +4,6 @@
 
 import json
 import os
-import glob
 
 
 class FileStorage:
@@ -14,7 +13,7 @@ class FileStorage:
         __file_path (str): stores the path of a file. ex (file.json)
         __objects (dict): stores the class with id. ex(BaseModel.1254668)
     """
-    __file_path = os.path.abspath(glob.glob("*.json"))  # privateclassattribute
+    __file_path = "file.json"  # privateclassattribute
     __objects = {}  # private class attribute
 
     def all(self):
