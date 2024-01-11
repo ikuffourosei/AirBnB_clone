@@ -13,11 +13,15 @@ It will have the options to;
 - Do operations on objects (count, compute stats, etc…)
 - Update attributes of an object
 - Destroy an object
+- Quit the program
 
 # More Information
 
 ## Execution
 Your shell should work like this in Interactive mode
+
+- To start the program:
+```($) ./console.py ```
 
 ``` 
 $ ./console.py
@@ -31,4 +35,9 @@ EOF  help  quit
 (hbnb) 
 (hbnb) quit
 $ 
+```
+
+- To use help
+```
+(hbnb)
 ```
