@@ -3,6 +3,7 @@
 
 
 import uuid
+from . import storage
 from datetime import datetime
 
 
@@ -35,6 +36,8 @@ class BaseModel:
                 format = "%Y-%m-%dT%H:%M:%S.%f"
                 value = datetime.strptime(kwargs["updated_at"], format)
                 self.updated_at = value
+        if not kwargs:
+            storage.new(self)
 
     def __str__(self):
         """Return the print() and str() representation of the BaseModel"""
@@ -44,6 +47,7 @@ class BaseModel:
         """updates the public instance attribute updated_at
         with the current datetime"""
         self.updated_at = datetime.now()
+        storage.save(self)
 
     def to_dict(self):
         """returns a dictionary containing all keys/values of
