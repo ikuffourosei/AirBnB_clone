@@ -16,10 +16,11 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def help_quit(self):
-        print('\n'.join(['Quit command to exit the program']))
+        print('\n'.join(['Usage: quit',
+                         'Quit command to exit the program',
+                         ]))
 
     def do_all(self, arg):
-        """Prints the string representation of all instances on the class name"""
         # if not arg:
         #     print("** class name missing **")
         #     return
@@ -33,14 +34,15 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
 
-
     def help_all(self):
         """
         Prints the string representation of all instances
         or all instances of a class.
         """
 
-        print('\n'.join(['Prints the string representation of all instances',
+        print('\n'.join(['Usage: all <class name> or all',
+                         '\n'
+                         'Prints the string representation of all instances',
                          'or all instances of a class.',
                          ]))
 
@@ -49,14 +51,14 @@ class HBNBCommand(cmd.Cmd):
         Update the attribute of an instance based on its ID.
 
         Parameters:
-            arg (str): The argument containing the instance ID, attribute name, and
-                attribute value separated by spaces.
+            arg (str): The argument containing the instance ID, attribute name
+            and attribute value separated by spaces.
 
         Raises:
-            ValueError: If the argument is empty or missing the instance ID, or if the
-                instance ID is not found in the instance dictionary, or if the argument
-                is missing the attribute name, or if the argument is missing the
-                attribute value.
+            ValueError: If the argument is empty or missing the instance ID
+            or if the instance ID is not found in the instance dictionary,
+            or if the argument is missing the attribute name,
+            or if the argument is missing the attribute value.
 
         Returns:
             None
@@ -72,10 +74,10 @@ class HBNBCommand(cmd.Cmd):
             if len(args) <= 1:
                 raise ValueError("** instance id missing **")
 
-            instance_id = args[1]
+            idn = args[1]
             instance_dict = storage.all()
 
-            if instance_id not in instance_dict:
+            if idn not in instance_dict:
                 raise ValueError("** no instance found **")
 
             if len(args) <= 2:
@@ -88,13 +90,25 @@ class HBNBCommand(cmd.Cmd):
 
             attribute_value = args[3]
 
-            setattr(instance_dict[instance_id], attribute_name, attribute_value)
-            instance_dict[instance_id].save()
+            setattr(instance_dict[idn], attribute_name, attribute_value)
+            instance_dict[idn].save()
         except ValueError as e:
             print(e)
 
+    def help_update(self):
+        print('\n'.join(['Usage: update <class name> <id> <attribute name> \
+"<attribute value>"',
+                         '\n'
+                         'Updates an instance based on the class name and id',
+                         'by adding or updating attribute',
+                         '(save the change into the JSON file).',
+                         ]))
+
     def do_create(self, arg):
-        """Creates an Instance according to a specified class with attributes"""
+        """
+        Creates an Instance according to a specified class
+        with attributes
+         """
         if arg:
             if arg == BaseModel.__name__:
                 print(BaseModel.__name__)
@@ -110,9 +124,12 @@ class HBNBCommand(cmd.Cmd):
 
     def help_create(self):
         """
-        Creates a new instance of BaseModel, saves it (to the JSON file) and prints the id.
+        Creates a new instance of BaseModel, saves it (to the JSON file)
+        and prints the id.
         """
-        print('\n'.join(['Creates a new instance of BaseModel',
+        print('\n'.join(['Usage: create <class name>',
+                         '\n'
+                         'Creates a new instance of BaseModel',
                          'saves it (to the JSON file) and prints the id.',
                          ]))
 
@@ -144,16 +161,20 @@ class HBNBCommand(cmd.Cmd):
 
     def help_show(self):
         """
-        Prints the string representation of an instance based on the class name and id.
+        Prints the string representation of an instance based on the class
+        name and id.
         """
 
-        print('\n'.join(['Prints the string representation',
+        print('\n'.join(['Usage: show <class name> <instance id>',
+                         '\n'
+                         'Prints the string representation',
                          'of an instance based on the class name and id.',
                          ]))
 
     def do_EOF(self, line):
         """EOF command to exit the program"""
         return True
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
