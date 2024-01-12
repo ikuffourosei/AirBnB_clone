@@ -46,7 +46,7 @@ $
 Usage: create <class name>
 ```
 
--Help on update; To update the instance
+- Help on update; To update the instance
 ```
 (hbnb) help update
 Usage: update <class name> <id> <attribute name> "<attribute value>"
@@ -56,7 +56,7 @@ by adding or updating attribute
 (save the change into the JSON file).
 ```
 
--Help on show; To show the instance of a class
+- Help on show; To show the instance of a class
 ```
 (hbnb) help show
 Usage: show <class name> <instance id>
@@ -65,7 +65,7 @@ Prints the string representation
 of an instance based on the class name and id.
 ```
 
--Help on View; To view all
+- Help on View; To view all
 ```
 (hbnb) help all
 Usage: all <class name> or all
