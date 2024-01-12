@@ -61,35 +61,37 @@ class HBNBCommand(cmd.Cmd):
         Returns:
             None
         """
+        try:
+            if not arg:
+                raise ValueError("** instance id missing **")
 
-        if not arg:
-            raise ValueError("** instance id missing **")
+            args = arg.split(' ')
+            if args[0] != BaseModel.__name__:
+                return
 
-        args = arg.split(' ')
-        if args[0] != BaseModel.__name__:
-            return
+            if len(args) <= 1:
+                raise ValueError("** instance id missing **")
 
-        if len(args) <= 1:
-            raise ValueError("** instance id missing **")
+            instance_id = args[1]
+            instance_dict = storage.all()
 
-        instance_id = args[1]
-        instance_dict = storage.all()
+            if instance_id not in instance_dict:
+                raise ValueError("** no instance found **")
 
-        if instance_id not in instance_dict:
-            raise ValueError("** no instance found **")
+            if len(args) <= 2:
+                raise ValueError("** attribute name missing **")
 
-        if len(args) <= 2:
-            raise ValueError("** attribute name missing **")
+            attribute_name = args[2]
 
-        attribute_name = args[2]
+            if len(args) <= 3:
+                raise ValueError("** value missing **")
 
-        if len(args) <= 3:
-            raise ValueError("** value missing **")
+            attribute_value = args[3]
 
-        attribute_value = args[3]
-
-        setattr(instance_dict[instance_id], attribute_name, attribute_value)
-        instance_dict[instance_id].save()
+            setattr(instance_dict[instance_id], attribute_name, attribute_value)
+            instance_dict[instance_id].save()
+        except ValueError as e:
+            print(e)
 
     def do_create(self, arg):
         """Creates an Instance according to a specified class with attributes"""
