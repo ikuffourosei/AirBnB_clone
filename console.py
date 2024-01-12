@@ -8,6 +8,8 @@ class HBNBCommand(cmd.Cmd):
     """HBNBCommand command interpreter for HBNB project"""
     prompt = '(hbnb) '
 
+    # Methods
+
     def do_quit(self, arg):
         "Quit Command to exit the command interpreter"
         return True
