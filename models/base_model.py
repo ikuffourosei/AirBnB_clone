@@ -27,7 +27,9 @@ class BaseModel:
             storage.new(self)
 
         if kwargs:
-            kwargs.pop("__class__")
+            # Check if kwargs contains "__class__" key and remove it
+            if kwargs and "__class__" in kwargs:
+                kwargs.pop("__class__", None)
             format = "%Y-%m-%dT%H:%M:%S.%f"
             if "id" in kwargs:
                 self.id = kwargs["id"]

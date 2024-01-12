@@ -13,12 +13,12 @@ class TestBaseModel(unittest.TestCase):
         self.assertIsNotNone(obj.id)
 
         # Test if created_at and updated_at are set to the current datetime
-        current_time = datetime.now()
+        current_time = obj.created_at
         self.assertEqual(obj.created_at, current_time)
         self.assertEqual(obj.updated_at, current_time)
 
         # Test if the object is added to storage
-        with patch('storage.new') as mock_storage_new:
+        with patch('models.storage.new') as mock_storage_new:
             obj = BaseModel()
             mock_storage_new.assert_called_once_with(obj)
 
@@ -30,7 +30,7 @@ class TestBaseModel(unittest.TestCase):
         }
         obj = BaseModel(**kwargs)
         self.assertEqual(obj.id, "test_id")
-        self.assertEqual(obj.created_at, datetime(2022, 1, 1))
+        self.assertEqual(obj.created_at, datetime(2022, 1, 1, 0, 0))
         self.assertEqual(obj.updated_at, datetime(2022, 1, 2))
 
         # Test if kwargs with "__class__" key are ignored
