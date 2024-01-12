@@ -38,37 +38,42 @@ $
 ```
 
 - To use help
+```(hbnb) help <command>```
+
+- Help on create; To create a new instance of a class
 ```
 (hbnb) help create
-Creates a new instance of BaseModel
-saves it (to the JSON file) and prints the id.
-(hbnb) help all
-Prints the string representation of all instances
-or all instances of a class.
+Usage: create <class name>
+```
+
+-Help on update; To update the instance
+```
 (hbnb) help update
+Usage: update <class name> <id> <attribute name> "<attribute value>"
 
-        Update the attribute of an instance based on its ID.
+Updates an instance based on the class name and id
+by adding or updating attribute
+(save the change into the JSON file).
+```
 
-        Parameters:
-            arg (str): The argument containing the instance ID, attribute name, and
-                attribute value separated by spaces.
-
-        Raises:
-            ValueError: If the argument is empty or missing the instance ID, or if the
-                instance ID is not found in the instance dictionary, or if the argument
-                is missing the attribute name, or if the argument is missing the
-                attribute value.
-
-        Returns:
-            None
-        
+-Help on show; To show the instance of a class
+```
 (hbnb) help show
+Usage: show <class name> <instance id>
+
 Prints the string representation
 of an instance based on the class name and id.
-(hbnb) help quit
-Quit command to exit the program
-
 ```
+
+-Help on View; To view all
+```
+(hbnb) help all
+Usage: all <class name> or all
+
+Prints the string representation of all instances
+or all instances of a class.
+```
+
 - To quit the console
 
 ```(hbnb) quit```
