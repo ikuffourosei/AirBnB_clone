@@ -29,10 +29,10 @@ class FileStorage:
 
     def save(self):
         """serializes __objects to the JSON file (path: __file_path)"""
-        objects_list = {key: value.to_dict() for key, value in FileStorage.__objects.items()}
+        objects_list = {key: value.to_dict()
+                        for key, value in FileStorage.__objects.items()}
         with open(FileStorage.__file_path, 'w', encoding="UTF-8") as file:
             json.dump(objects_list, file)
-
 
     def reload(self):
         """
@@ -41,10 +41,21 @@ class FileStorage:
         If the file doesn’t exist, no exception should be raised)
         """
         from models.base_model import BaseModel
-
+        from models.user import User
+        from models.state import State
+        from models.amenity import Amenity
+        from models.review import Review
+        from models.city import City
+        from models.place import Place
 
         class_mapping = {
-            'BaseModel': BaseModel
+            'BaseModel': BaseModel,
+            'User': User,
+            'Place': Place,
+            'State': State,
+            'City': City,
+            'Amenity': Amenity,
+            'Review': Review
         }
         if os.path.exists(FileStorage.__file_path):
             with open(FileStorage.__file_path, 'r') as file:
