@@ -34,7 +34,7 @@ class BaseModel:
             if "id" in kwargs:
                 self.id = kwargs["id"]
             if "created_at" in kwargs:
-                value = datetime.strptime(kwargs["updated_at"], format)
+                value = datetime.strptime(kwargs["created_at"], format)
                 self.created_at = value
             if "updated_at" in kwargs:
                 value = datetime.strptime(kwargs["updated_at"], format)

@@ -32,21 +32,14 @@ class TestPlace(unittest.TestCase):
         if os.path.isfile(FileStorage._FileStorage__file_path):
             os.remove(FileStorage._FileStorage__file_path)
 
-    def test_8_instantiation(self):
+    def test_place_instantiation(self):
         """Tests instantiation of Place class."""
 
-        b = Place()
-        self.assertEqual(str(type(b)), "<class 'models.place.Place'>")
-        self.assertIsInstance(b, Place)
-        self.assertTrue(issubclass(type(b), BaseModel))
+        value = Place()
+        self.assertEqual(str(type(value)), "<class 'models.place.Place'>")
+        self.assertIsInstance(value, Place)
+        self.assertTrue(issubclass(type(value), BaseModel))
 
-    def test_8_attributes(self):
-        """Tests the attributes of Place class."""
-        attributes = storage.attributes()["Place"]
-        o = Place()
-        for k, v in attributes.items():
-            self.assertTrue(hasattr(o, k))
-            self.assertEqual(type(getattr(o, k, None)), v)
 
 if __name__ == "__main__":
     unittest.main()

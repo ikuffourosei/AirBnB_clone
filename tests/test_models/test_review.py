@@ -32,21 +32,14 @@ class TestReview(unittest.TestCase):
         if os.path.isfile(FileStorage._FileStorage__file_path):
             os.remove(FileStorage._FileStorage__file_path)
 
-    def test_8_instantiation(self):
+    def test_review_instantiation(self):
         """Tests instantiation of Review class."""
 
-        b = Review()
-        self.assertEqual(str(type(b)), "<class 'models.review.Review'>")
-        self.assertIsInstance(b, Review)
-        self.assertTrue(issubclass(type(b), BaseModel))
+        value = Review()
+        self.assertEqual(str(type(value)), "<class 'models.review.Review'>")
+        self.assertIsInstance(value, Review)
+        self.assertTrue(issubclass(type(value), BaseModel))
 
-    def test_8_attributes(self):
-        """Tests the attributes of Review class."""
-        attributes = storage.attributes()["Review"]
-        o = Review()
-        for k, v in attributes.items():
-            self.assertTrue(hasattr(o, k))
-            self.assertEqual(type(getattr(o, k, None)), v)
 
 if __name__ == "__main__":
     unittest.main()

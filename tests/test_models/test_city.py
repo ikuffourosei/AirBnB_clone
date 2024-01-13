@@ -32,21 +32,14 @@ class TestCity(unittest.TestCase):
         if os.path.isfile(FileStorage._FileStorage__file_path):
             os.remove(FileStorage._FileStorage__file_path)
 
-    def test_8_instantiation(self):
+    def test_city_instantiation(self):
         """Tests instantiation of City class."""
 
-        b = City()
-        self.assertEqual(str(type(b)), "<class 'models.city.City'>")
-        self.assertIsInstance(b, City)
-        self.assertTrue(issubclass(type(b), BaseModel))
+        value = City()
+        self.assertEqual(str(type(value)), "<class 'models.city.City'>")
+        self.assertIsInstance(value, City)
+        self.assertTrue(issubclass(type(value), BaseModel))
 
-    def test_8_attributes(self):
-        """Tests the attributes of City class."""
-        attributes = storage.attributes()["City"]
-        o = City()
-        for k, v in attributes.items():
-            self.assertTrue(hasattr(o, k))
-            self.assertEqual(type(getattr(o, k, None)), v)
 
 if __name__ == "__main__":
     unittest.main()

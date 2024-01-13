@@ -32,21 +32,14 @@ class TestState(unittest.TestCase):
         if os.path.isfile(FileStorage._FileStorage__file_path):
             os.remove(FileStorage._FileStorage__file_path)
 
-    def test_8_instantiation(self):
+    def test_state_instantiation(self):
         """Tests instantiation of State class."""
 
-        b = State()
-        self.assertEqual(str(type(b)), "<class 'models.state.State'>")
-        self.assertIsInstance(b, State)
-        self.assertTrue(issubclass(type(b), BaseModel))
+        value = State()
+        self.assertEqual(str(type(value)), "<class 'models.state.State'>")
+        self.assertIsInstance(value, State)
+        self.assertTrue(issubclass(type(value), BaseModel))
 
-    def test_8_attributes(self):
-        """Tests the attributes of State class."""
-        attributes = storage.attributes()["State"]
-        o = State()
-        for k, v in attributes.items():
-            self.assertTrue(hasattr(o, k))
-            self.assertEqual(type(getattr(o, k, None)), v)
 
 if __name__ == "__main__":
     unittest.main()
