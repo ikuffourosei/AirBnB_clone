@@ -3,7 +3,7 @@
 
 
 import uuid
-from . import storage
+from models import storage
 from datetime import datetime
 
 
