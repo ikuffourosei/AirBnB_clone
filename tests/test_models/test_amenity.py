@@ -32,21 +32,21 @@ class TestAmenity(unittest.TestCase):
         if os.path.isfile(FileStorage._FileStorage__file_path):
             os.remove(FileStorage._FileStorage__file_path)
 
-    def test_amenity_instantiation(self):
+    def test_8_instantiation(self):
         """Tests instantiation of Amenity class."""
 
-        value = Amenity()
-        self.assertEqual(str(type(value)), "<class 'models.amenity.Amenity'>")
-        self.assertIsInstance(value, Amenity)
-        self.assertTrue(issubclass(type(value), BaseModel))
+        b = Amenity()
+        self.assertEqual(str(type(b)), "<class 'models.amenity.Amenity'>")
+        self.assertIsInstance(b, Amenity)
+        self.assertTrue(issubclass(type(b), BaseModel))
 
-    def test_amenity_attributes(self):
+    def test_8_attributes(self):
         """Tests the attributes of Amenity class."""
         attributes = storage.attributes()["Amenity"]
-        value = Amenity()
-        for key, val in attributes.items():
-            self.assertTrue(hasattr(value, key))
-            self.assertEqual(type(getattr(value, key, None)), val)
+        o = Amenity()
+        for k, v in attributes.items():
+            self.assertTrue(hasattr(o, k))
+            self.assertEqual(type(getattr(o, k, None)), v)
 
 if __name__ == "__main__":
     unittest.main()
