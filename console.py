@@ -132,7 +132,6 @@ class HBNBCommand(cmd.Cmd):
         else:
             print(objdict["{}.{}".format(argl[0], argl[1])])
 
-
     def help_show(self):
         """
         Prints the string representation of an instance based on the class
@@ -198,7 +197,7 @@ class HBNBCommand(cmd.Cmd):
                 else:
                     obj.__dict__[k] = v
         storage.save()
-    
+
     def help_update(self):
         print('\n'.join(['Usage: update <class name> <id> <attribute name> \
 "<attribute value>"',
@@ -207,7 +206,7 @@ class HBNBCommand(cmd.Cmd):
                          'by adding or updating attribute',
                          '(save the change into the JSON file).',
                          ]))
-    
+
     def do_destroy(self, arg):
         """Usage: destroy <class> <id> or <class>.destroy(<id>)
         Delete a class instance of a given id."""
