@@ -1,16 +1,7 @@
-/*
- * === Places style ===
- */
-
-/* Places style */
-.places {
-    align-items: center; /* Center items horizontally */
-}
-
+/* PLACES */
 .places h1 {
+    text-align: left;
     font-size: 30px;
-    font-weight: bold;
-    margin: .67em 0 .67em 0;
 }
 
 .places article {
@@ -19,12 +10,21 @@
     margin: 20px;
     border: 1px solid #FF5A5F;
     border-radius: 4px;
-    display: inline-block;
+
+    /* center contents */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.places h2 {
+.places article h2 {
     font-size: 30px;
-    font-weight: bold;
-    text-align: center;
     margin: 0;
+}
+
+.places__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
 }

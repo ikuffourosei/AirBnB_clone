@@ -9,7 +9,7 @@
     width: 100%;
     border: 1px solid #dddddd;
     border-radius: 4px;
-    display: inline-block;
+    display: block;
 }
 /* Search button style */
 .filters button{
